@@ -59,8 +59,9 @@ gh repo view "$FULL" >/dev/null 2>&1 || { echo "Repository $FULL not found, or y
 echo "Setting up $FULL ($KIND)"
 
 echo
-echo "1. Merging: squash only, titled after the pull request, branches deleted after merging"
-run gh repo edit "$FULL" --enable-squash-merge --enable-merge-commit=false --enable-rebase-merge=false --delete-branch-on-merge
+echo "1. Merging: squash only, titled after the pull request, branches deleted after merging,"
+echo "   and an Update branch button on pull requests that fall behind main"
+run gh repo edit "$FULL" --enable-squash-merge --enable-merge-commit=false --enable-rebase-merge=false --delete-branch-on-merge --allow-update-branch
 run gh api --silent -X PATCH "repos/$FULL" -f squash_merge_commit_title=PR_TITLE -f squash_merge_commit_message=BLANK
 
 echo
