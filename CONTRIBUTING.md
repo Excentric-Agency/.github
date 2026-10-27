@@ -57,7 +57,8 @@ Outside collaborators are removed from a repository when their work on it ends.
 - **Merge only work that is ready to go live.** Merging deploys to staging, and the next production deploy includes everything on `main`. Work awaiting approval stays in an open pull request.
 - **Review:** Excentric developers may merge their own small pull requests once the checks pass. Larger changes get a second reviewer.
 - **Production** is deployed by an Excentric developer: **Actions → Deploy to WP Engine → Run workflow → production**.
-- **Dependent pull requests:** merge the first one, then update the second from `main` (**Update branch** on the pull request) before merging it.
+- **Start every branch from an up-to-date `main`, and don't build a pull request on another unmerged one.** With squash merging, the first pull request lands on `main` as a new commit, so a second one built on it conflicts with `main` even where nothing really differs. If a change needs another that isn't merged yet, merge that one first, or put both in one pull request.
+- **Merge pull requests soon after they're approved.** The longer a branch stays open, the more `main` moves on underneath it. If GitHub reports a conflict, select **Update branch** (or **Resolve conflicts** for a simple one), or ask an Excentric developer.
 - **Code moves up** (local, staging, production) through Git. **Content moves down.** Never push a database to production.
 
 ## Commit messages and pull request titles
