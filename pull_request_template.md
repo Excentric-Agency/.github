@@ -10,7 +10,7 @@
 
 <!-- Optional. Complete for larger changes, delete for small ones. -->
 
-**Request or ticket:**
+**Issue:** <!-- Fixes #12 -->
 
 - [ ] Checked on mobile and desktop
 - [ ] Needs manual steps in wp-admin when it goes live (describe below)

@@ -1,6 +1,6 @@
 name: Bug report
 description: Something on a site is broken or not working as expected.
-labels: ["bug"]
+type: Bug
 body:
   - type: input
     id: url
