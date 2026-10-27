@@ -1,0 +1,47 @@
+name: Bug report
+description: Something on a site is broken or not working as expected.
+labels: ["bug"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page
+      description: The full URL, and whether it is production or staging.
+      placeholder: https://<site>/contact/ (production)
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens, and what should happen
+      placeholder: After pressing Send, the form shows an error. It should show the confirmation message.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the page on a phone
+        2. Complete the form
+        3. Press Send
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser
+      placeholder: iPhone 15, Safari
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or recording
+      description: Drag files here.
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Priority
+      options:
+        - Urgent – the live site is broken for visitors
+        - High – noticeable, fix this week
+        - Low – minor
+    validations:
+      required: true

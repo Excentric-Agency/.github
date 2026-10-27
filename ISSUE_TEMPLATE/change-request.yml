@@ -1,0 +1,32 @@
+name: Change request
+description: New content, design changes, plugin updates, or anything else that is not a bug.
+labels: ["change"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Requested change
+      description: Describe the change. Link to designs (Figma) or the client's request if available.
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Pages or sections
+  - type: input
+    id: requested-by
+    attributes:
+      label: Requested by
+      placeholder: Client contact, or internal
+  - type: input
+    id: due
+    attributes:
+      label: Due date
+      placeholder: 2026-11-15, or none
+  - type: checkboxes
+    id: notes
+    attributes:
+      label: Requirements
+      options:
+        - label: Client approval on staging before going live
+        - label: Changes in wp-admin as well as code (settings, plugins, content)
