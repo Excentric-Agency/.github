@@ -113,6 +113,14 @@ Plugins are listed in each site's `composer.json`, installed by Composer and upd
 
 Tag each repository from the gear icon beside **About** on its home page: `wordpress`, `wpengine`, `custom-theme` or `page-builder`, the builder (`elementor`, `divi`), `acf`, `woocommerce`, and `maintenance` for sites on a retainer.
 
+## Changing the templates and these guides
+
+The template repositories (`excentric-wp-site-template`, `excentric-wp-plugin-template`, `excentric-project-template`) and this `.github` repository are the master copies. Change them through pull requests, like any other repository. Don't edit local copies and upload them.
+
+- A change to a template applies only to repositories created from it afterwards. Existing repositories don't update. If the change matters to them too (a workflow fix, for example), make the same change in each one in its own pull request.
+- A change to this repository's guides, pull request template or issue forms applies to every repository straight away, except repositories that have their own copy of that file.
+- Mention template changes in the pull request description, so whoever starts the next project knows what's new.
+
 ## Help
 
 New to Git: start with [git-basics.md](git-basics.md). GitHub Desktop and the Source Control panel in VS Code cover everything above. Ask an Excentric developer before force-pushing, rewriting history or changing repository settings.
