@@ -1,0 +1,21 @@
+name: Task
+description: Anything else to do, in code or not. Admin, content, setup, follow-ups.
+type: Task
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What needs to be done
+      description: The outcome, and anything needed to do it (links, files, who to ask).
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      placeholder: The client has the report, or the setting is live on production.
+  - type: input
+    id: due
+    attributes:
+      label: Due date
+      placeholder: 2026-11-15, or none

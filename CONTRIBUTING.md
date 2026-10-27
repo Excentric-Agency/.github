@@ -47,6 +47,26 @@ Every repository has a one-line description (the gear icon beside **About** on i
 
 Outside collaborators are removed from a repository when their work on it ends.
 
+## Issues and tasks
+
+Work is tracked in GitHub Issues and shown on the **Excentric work** project board (**Projects** tab on the organization page).
+
+| Work | Where the issue goes |
+|---|---|
+| A change, bug or task on a site | That site's repository, next to its code |
+| Anything else: admin, client requests not yet tied to a site, operations | `excentric-tasks` |
+
+- **Choose the form that fits:** Bug report, Change request or Task. Each sets the issue type.
+- **One deliverable per issue,** titled as the outcome: `Contact page: map shows the new office`, not `map`.
+- **One person assigned.** If several people are involved, assign whoever moves it forward next.
+- **Client requests by email become issues.** Paste the relevant part of the email, and link the thread.
+- **Set Client, Priority and Due date on the board** when they apply.
+- **Link the pull request:** `Fixes #12` in the description closes the issue when the pull request merges. For an issue in another repository, use `Fixes Excentric-Agency/excentric-tasks#12`.
+- **Close an issue when the work is finished.** For code, the pull request's `Fixes` line does this when it merges, since only work that is ready to go live is merged. For other work, close it once it's delivered.
+- **Questions and decisions go in the issue's comments,** so the reason stays with the work.
+
+To be notified of new issues in a repository, use **Watch → Custom → Issues** on it.
+
 ## Making changes
 
 - **Every change goes through a pull request into `main`,** including one-line fixes. The checks run on it, staging shows it before production does, and the reason for the change is recorded.

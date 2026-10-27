@@ -1,6 +1,6 @@
 name: Change request
 description: New content, design changes, plugin updates, or anything else that is not a bug.
-labels: ["change"]
+type: Feature
 body:
   - type: textarea
     id: what
