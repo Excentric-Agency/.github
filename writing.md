@@ -50,7 +50,7 @@ The rules are based on ASD-STE100 Simplified Technical English, a controlled lan
 ## Punctuation and formatting
 
 1. Do not use semicolons or em-dashes. Write two sentences, or use a word that names the relation: because, but, so, for example.
-2. Use bold only for the names of buttons, menus and fields: **Squash and merge**, **Settings → Branches**. Do not use bold for emphasis or as a lead-in at the start of a list item.
+2. Use bold only for the names of buttons, menus and fields (**Squash and merge**, **Settings → Branches**), and for the labels in the first column of a fact table without a header row. Do not use bold for emphasis or as a lead-in at the start of a list item.
 3. Put code, commands, file names, folder names, branch names and settings values in backticks: `composer.json`, `main`, `DEPLOY_PLUGINS`.
 4. Do not use emoji or exclamation marks.
 5. Use GitHub's alert blocks (`> [!IMPORTANT]`, `> [!WARNING]`) only for a warning that can cause damage or data loss. Use one or two in a document at most.
