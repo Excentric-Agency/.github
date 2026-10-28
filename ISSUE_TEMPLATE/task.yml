@@ -1,12 +1,12 @@
 name: Task
-description: Anything else to do, in code or not. Admin, content, setup, follow-ups.
+description: Other work, in code or not: admin, content, setup, follow-ups.
 type: Task
 body:
   - type: textarea
     id: what
     attributes:
       label: What needs to be done
-      description: The outcome, and anything needed to do it (links, files, who to ask).
+      description: The result, and what is necessary to do the work: links, files, people to ask.
     validations:
       required: true
   - type: textarea

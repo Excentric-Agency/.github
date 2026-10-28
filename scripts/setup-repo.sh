@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # Applies Excentric's standard settings to a repository: merge options, team access,
 # description and topics, and for WordPress sites the deploy variables and secrets.
-# GitHub doesn't copy these from templates, so run this once for every new repository.
-# Safe to run again: it only sets values, it never deletes anything.
+# GitHub does not copy these from templates, so run this one time for each new repository.
+# You can run it again. It only sets values. It never deletes anything.
 #
 # Needs the GitHub CLI (gh), signed in as an organization owner: gh auth login
 #
 # Usage:   setup-repo.sh <repository> <kind> [--dry-run]
 #   kind:  wp-site | wp-plugin | project | template
-#   --dry-run shows what would change without changing anything.
+#   --dry-run shows the changes and does not make them.
 # At each question, Enter accepts the suggestion in brackets and "-" skips it.
 # Example: setup-repo.sh acme-website wp-site
 
@@ -54,7 +54,7 @@ ask() {
 }
 
 gh auth status >/dev/null 2>&1 || { echo "Sign in to GitHub first: gh auth login"; exit 1; }
-gh repo view "$FULL" >/dev/null 2>&1 || { echo "Repository $FULL not found, or you can't access it."; exit 1; }
+gh repo view "$FULL" >/dev/null 2>&1 || { echo "Repository $FULL not found, or you do not have access to it."; exit 1; }
 [ "$DRY" = "--dry-run" ] && echo "Dry run: nothing will change."
 echo "Setting up $FULL ($KIND)"
 
@@ -72,7 +72,7 @@ for pair in developers:admin design:pull; do
 		run gh api --silent -X PUT "orgs/$ORG/teams/$team/repos/$FULL" -f permission="$level"
 		echo "  $team: $level"
 	else
-		echo "  Team \"$team\" doesn't exist yet. Create it (org-setup.md, section 3) and run this again."
+		echo "  Team \"$team\" does not exist yet. Create it (org-setup.md, section 3) and run this again."
 	fi
 done
 echo "  Contractors: add them by hand as outside collaborators with Write (Settings → Collaborators)."
@@ -104,7 +104,7 @@ if [ "$KIND" = "wp-site" ]; then
 	[ -n "$stg" ] && run gh variable set WPE_ENV_STAGING --repo "$FULL" --body "$stg"
 	deployers="$(ask "  GitHub usernames allowed to deploy production" "$DEPLOYERS_DEFAULT")"
 	run gh variable set PRODUCTION_DEPLOYERS --repo "$FULL" --body "$deployers"
-	echo "  DEPLOY_PLUGINS is left unset. Set it to true once the plugin list is complete (plugins.md)."
+	echo "  DEPLOY_PLUGINS stays unset. Set it to true when the plugin list is complete (plugins.md)."
 
 	echo
 	echo "5. Secrets (read from files, never shown)"

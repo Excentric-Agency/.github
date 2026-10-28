@@ -6,7 +6,7 @@ body:
     id: what
     attributes:
       label: Requested change
-      description: Describe the change. Link to designs (Figma) or the client's request if available.
+      description: Describe the change. If there are designs (Figma) or a request from the client, add links to them.
     validations:
       required: true
   - type: textarea
