@@ -1,5 +1,5 @@
 name: Bug report
-description: Something on a site is broken or not working as expected.
+description: Something on a site is broken, or does not work as expected.
 type: Bug
 body:
   - type: input
@@ -13,8 +13,8 @@ body:
   - type: textarea
     id: what
     attributes:
-      label: What happens, and what should happen
-      placeholder: After pressing Send, the form shows an error. It should show the confirmation message.
+      label: What happens, and what you expected
+      placeholder: When I press Send, the form shows an error. I expected the confirmation message.
     validations:
       required: true
   - type: textarea
@@ -40,8 +40,8 @@ body:
     attributes:
       label: Priority
       options:
-        - Urgent – the live site is broken for visitors
-        - High – noticeable, fix this week
-        - Low – minor
+        - Urgent: the live site is broken for visitors
+        - High: visitors can see it, fix this week
+        - Low: a small problem
     validations:
       required: true
