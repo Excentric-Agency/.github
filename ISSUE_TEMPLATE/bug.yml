@@ -40,8 +40,8 @@ body:
     attributes:
       label: Priority
       options:
-        - Urgent: the live site is broken for visitors
-        - High: visitors can see it, fix this week
-        - Low: a small problem
+        - "Urgent: the live site is broken for visitors"
+        - "High: visitors can see it, fix this week"
+        - "Low: a small problem"
     validations:
       required: true
