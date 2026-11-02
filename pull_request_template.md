@@ -1,14 +1,14 @@
 ## What changed
 
-<!-- One or two sentences in plain language. -->
+<!-- Write one or two sentences in plain language. -->
 
 ## Pages to check
 
-<!-- Staging links once merged, or "n/a". -->
+<!-- Add links to the changed pages on staging, or write "n/a". The links work after the merge. -->
 
 ---
 
-<!-- Optional. Complete for larger changes, delete for small ones. -->
+<!-- This part is optional. Complete it for a larger change, and delete it for a small change. -->
 
 **Issue:** <!-- Fixes #12 -->
 

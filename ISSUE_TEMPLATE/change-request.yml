@@ -1,5 +1,5 @@
 name: Change request
-description: New content, design changes, plugin updates, or anything else that is not a bug.
+description: Use this form for new content, design changes, plugin updates and other work that is not a bug.
 type: Feature
 body:
   - type: textarea

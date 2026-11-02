@@ -30,7 +30,7 @@ You need [Composer](https://getcomposer.org) on your computer. Herd includes Com
    ```bash
    composer require wpackagist-plugin/<slug>:<version>
    ```
-   The slug is the last part of the WordPress.org address of the plugin. For `wordpress.org/plugins/wordpress-seo/`, the slug is `wordpress-seo`. For example: `composer require wpackagist-plugin/wordpress-seo:28.5`.
+   The slug is the last part of the WordPress.org address of the plugin. For `wordpress.org/plugins/wordpress-seo/`, the slug is `wordpress-seo`. For example, run `composer require wpackagist-plugin/wordpress-seo:28.5`.
 3. Add the paid plugins, as described in [Paid plugins](#paid-plugins). If the site does not use ACF Pro, remove the ACF Pro repository and `require` line from `composer.json`. Also remove its `hostRules` entry from `renovate.json`.
 4. If a paid plugin has a Composer repository, add its credentials to `auth.json` on your computer and to the GitHub secret `COMPOSER_AUTH`. See [Credentials](#credentials). The checks on the next pull request need the secret.
 5. Run `composer install` and check the site. The plugins folder now contains only the listed plugins.

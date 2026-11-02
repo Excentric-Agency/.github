@@ -38,7 +38,7 @@ PHPCompatibilityWP 2.1 uses PHPCompatibility 9.3, which knows PHP versions up to
 | PSR-12 and PER Coding Style | Style rules for PHP from the wider PHP community | They conflict with the WordPress style: tabs, spaces inside brackets, and snake_case names. All WordPress code and examples use the WordPress style |
 | Laravel Pint | A PHP formatter, with presets for Laravel, PSR-12 and PER | It has no WordPress preset, and it only formats. For the WordPress style, `phpcbf` from PHP_CodeSniffer can fix spacing |
 | Prettier | A formatter for CSS and JavaScript, with a community plugin for PHP | It only formats. It does not find mistakes. Biome formats CSS and JavaScript, and the PHP plugin does not follow the WordPress style |
-| ESLint and Stylelint | Linters for JavaScript and for CSS | Biome covers the rules that we use, with one tool and one settings file. A theme with an npm build can use them through `@wordpress/scripts`, see [Themes with an npm build](#themes-with-an-npm-build) |
+| ESLint and Stylelint | Linters for JavaScript and for CSS | Biome covers the rules that we use, with one tool and one settings file. A theme with an npm build can use them through `@wordpress/scripts`. See [Themes with an npm build](#themes-with-an-npm-build) |
 
 These tools are good choices in other kinds of projects, for example Pint and PSR-12 in a Laravel application.
 
@@ -47,8 +47,8 @@ These tools are good choices in other kinds of projects, for example Pint and PS
 Do these steps one time for each site. You need PHP, Composer and Node.js. Laravel Herd and Local include PHP. Install Composer and Node.js if you do not have them.
 
 1. Open a terminal in the root folder of the site, the folder with `composer.json` and `package.json`.
-2. Install the PHP tools and the plugins: `composer install`. If the site has paid plugins, you need `auth.json` first, see `plugins.md`.
-3. Install Biome: `npm install`.
+2. If the site has paid plugins, add `auth.json` first, as described in `plugins.md`. Then run `composer install` to install the PHP tools and the plugins.
+3. Run `npm install` to install Biome.
 
 Both commands install the exact versions in `composer.lock` and `package-lock.json`, into `vendor/` and `node_modules/` in the site folder. They install nothing on the rest of your computer.
 
@@ -130,11 +130,11 @@ GitHub Free does not block a merge when a check fails. Do not merge a pull reque
 
 ## Adopting the checks on an existing site
 
-An existing theme usually has many issues. Adopt the checks in this order, each step in its own pull request:
+An existing theme usually has many issues. Adopt the checks in this order. Make a separate pull request for each step.
 
-1. Format the CSS and JavaScript one time: `npm run format`. The pull request changes only spacing and safe fixes. Title it `Code: format CSS and JavaScript with Biome`.
+1. Run `npm run format` one time to format the CSS and JavaScript. The pull request changes only spacing and safe fixes. Title it `Code: format CSS and JavaScript with Biome`.
 2. Fix the other issues that Biome reports. If a rule does not suit the site, turn it off in `biome.json`, and write the reason in the pull request.
-3. Record the existing PHPStan issues: `composer analyse -- --generate-baseline`. Commit `phpstan-baseline.neon`. After that, only new issues fail the check.
+3. To record the existing PHPStan issues, run `composer analyse -- --generate-baseline`. Commit `phpstan-baseline.neon`. After that, only new issues fail the check.
 4. Fix the PHP security issues in a file when you work on that file. The check looks only at the files that a pull request changes. To see all the issues, run `composer lint`.
 
 Exclude code that we did not write, for example a library in a `vendor/` folder or a font file in CSS. Add it to `biome.json`, `phpcs.xml.dist` and `phpstan.neon.dist`.
@@ -163,4 +163,4 @@ Renovate opens a pull request with the title `Checks: update <tool> to <version>
 
 ## Themes with an npm build
 
-If a theme has a `package.json` with a build step in its own folder, it can use `@wordpress/scripts` for linting: `npm run lint:js` and `npm run lint:css`. Then remove `biome.json`, the Biome lines in `package.json`, and the Biome steps in `checks.yml`. Write this in the README of the site.
+If a theme has a `package.json` with a build step in its own folder, it can use `@wordpress/scripts` for linting, with `npm run lint:js` and `npm run lint:css`. Then remove `biome.json`, the Biome lines in `package.json`, and the Biome steps in `checks.yml`. Write this in the README of the site.
