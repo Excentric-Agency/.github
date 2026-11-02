@@ -164,4 +164,4 @@ Write template changes in the pull request description, so that the person who s
 
 ## Help
 
-If you are new to Git, start with [git-basics.md](git-basics.md). GitHub Desktop and the Source Control panel in VS Code can do all of the steps in this guide. Before you force-push, rewrite history or change repository settings, ask an Excentric developer.
+If you are new to Git, start with [git-basics.md](git-basics.md). [commands.md](commands.md) lists the commands that Excentric developers use most, for Git, GitHub, Composer, the checks and the deploys. GitHub Desktop and the Source Control panel in VS Code can do all of the steps in this guide. Before you force-push, rewrite history or change repository settings, ask an Excentric developer.
