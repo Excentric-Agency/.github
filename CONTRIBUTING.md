@@ -87,6 +87,20 @@ Code moves up through Git, from local to staging to production. Content moves do
 
 The **Checks** workflow runs on each pull request. It checks PHP syntax, the WordPress security rules, PHP compatibility, and CSS and JavaScript. Run the same checks on your computer before you open a pull request. For the tools, the reasons for them and the commands, see [linting.md](linting.md).
 
+## Writing code
+
+### Reuse what exists
+
+1. Before you add a style, a script or a template part, look for one that already does the job: a shared component, a class, a token (a colour, a space or a motion value) or a helper function.
+2. If one exists, use it or extend it. For example, add your selector to the shared rule. Do not make a copy that looks the same. A copy drifts from the original, and the site becomes inconsistent.
+3. If nothing exists and two places need the same thing, make it shared from the start.
+
+### Fix the cause
+
+1. If a bug comes back after a fix, or a fix needs a second fix, stop and find the cause. A bug that keeps coming back often means that two parts of the code control the same thing, for example CSS and a script.
+2. Change the code so that one part controls it. If that needs a rewrite of the feature, rewrite it in its own pull request.
+3. Show the fix. Describe a test that shows the bug before the change and shows that the bug is gone after it. Put the test and its result in the pull request.
+
 ## Commit messages and pull request titles
 
 With squash merging, the title of the pull request becomes the commit message on `main`. Commits on a branch can be informal.
