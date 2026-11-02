@@ -1,12 +1,12 @@
 name: Task
-description: Other work, in code or not: admin, content, setup, follow-ups.
+description: Use this form for other work, in code or not, for example admin, content, setup and follow-ups.
 type: Task
 body:
   - type: textarea
     id: what
     attributes:
       label: What needs to be done
-      description: The result, and what is necessary to do the work: links, files, people to ask.
+      description: Describe the result. Add what the work needs, for example links, files and the people to ask.
     validations:
       required: true
   - type: textarea

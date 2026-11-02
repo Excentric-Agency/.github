@@ -4,7 +4,7 @@ These standards apply to every repository in the Excentric-Agency organization, 
 
 ## New repositories
 
-1. Name the repository `<client>-<project>`, in lowercase with hyphens. Put the client first, so that the repositories of a client sort together: `<client>-website`, `<client>-careers-microsite`. For a one-off campaign, add the year: `<client>-holiday-campaign-<year>`. Internal tools and shared plugins start with `excentric-`.
+1. Name the repository `<client>-<project>`, in lowercase with hyphens. Put the client first, so that the repositories of a client sort together, for example `<client>-website` and `<client>-careers-microsite`. For a one-off campaign, add the year: `<client>-holiday-campaign-<year>`. Internal tools and shared plugins start with `excentric-`.
 2. Do not put domains or WP Engine install names in the repository name. They can change, so they go in the README.
 3. Create the repository from a template. Select **New repository → Repository template**, select the template for the kind of project, and set it to **Private**.
 
@@ -14,7 +14,7 @@ These standards apply to every repository in the Excentric-Agency organization, 
    | WordPress plugin, for one client or for all Excentric sites | `excentric-wp-plugin-template` |
    | Other projects: static or JavaScript sites, apps, tools | `excentric-project-template` |
 
-4. Apply the standard settings with the setup script in this repository: `scripts/setup-repo.sh <repository> <kind>`. GitHub does not copy settings from templates.
+4. To apply the standard settings, run the setup script of this repository, `scripts/setup-repo.sh <repository> <kind>`. GitHub does not copy settings from templates.
 5. Complete the steps in `SETUP.md`, then delete the file. It covers the `.gitignore`, repository settings, deploy secrets, team access and topics.
 6. Add a description on the home page of the repository, as described in [Repository descriptions](#repository-descriptions).
 7. Fill in the README, and replace each `<placeholder>`. The README is the first file that a person reads when they work on the project later.
@@ -73,7 +73,7 @@ To get notifications for new issues in a repository, select **Watch → Custom �
 4. Complete the pull request template. For a small change, the two required lines are sufficient.
 5. Merge with **Squash and merge**. This is the only merge method that the repositories allow. The pull request becomes one commit on `main`, with the title of the pull request, and you can revert it in one step. Before you merge, shorten the pre-filled description to one or two sentences.
 6. Merge only work that is ready to go live. A merge deploys to staging, and the next production deploy includes all of `main`. Work that waits for approval stays in an open pull request.
-7. An Excentric developer deploys production: **Actions → Deploy to WP Engine → Run workflow → production**.
+7. An Excentric developer deploys production with **Actions → Deploy to WP Engine → Run workflow → production**.
 
 Excentric developers can merge their own small pull requests when the checks pass. A second person reviews larger changes.
 

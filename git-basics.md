@@ -61,7 +61,7 @@ Use this method with GitHub Desktop for larger changes.
 
 ## After you open a pull request
 
-1. The checks run (PHP syntax and CSS). A green check mark shows that they passed.
+1. The checks for PHP syntax and CSS run. A green check mark shows that they passed.
 2. An Excentric developer reviews the pull request if necessary, then selects **Squash and merge**.
 3. The merge deploys to staging. Check the changed pages there.
 4. When the change is ready to go live, an Excentric developer deploys production.

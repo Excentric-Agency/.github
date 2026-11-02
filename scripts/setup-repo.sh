@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Applies Excentric's standard settings to a repository: merge options, team access,
-# description and topics, and for WordPress sites the deploy variables and secrets.
+# This script applies the standard Excentric settings to a repository. It sets the merge options,
+# team access, description and topics, and for a WordPress site the deploy variables and secrets.
 # GitHub does not copy these from templates, so run this one time for each new repository.
 # You can run it again. It only sets values. It never deletes anything.
 #
-# Needs the GitHub CLI (gh), signed in as an organization owner: gh auth login
+# It needs the GitHub CLI (gh), signed in as an organization owner. To sign in, run gh auth login.
 #
 # Usage:   setup-repo.sh <repository> <kind> [--dry-run]
 #   kind:  wp-site | wp-plugin | project | template
@@ -44,7 +44,7 @@ run() {
 	fi
 }
 # Asks a question, with an optional default shown in brackets. Enter accepts the
-# default, "-" leaves the setting as it is.
+# default, and "-" leaves the setting as it is.
 ask() {
 	local answer
 	read -r -p "$1${2:+ [$2]}: " answer
@@ -59,8 +59,8 @@ gh repo view "$FULL" >/dev/null 2>&1 || { echo "Repository $FULL not found, or y
 echo "Setting up $FULL ($KIND)"
 
 echo
-echo "1. Merging: squash only, titled after the pull request, branches deleted after merging,"
-echo "   and an Update branch button on pull requests that fall behind main"
+echo "1. Merging. The repository allows only squash merges, with the title of the pull request."
+echo "   GitHub deletes each branch after its merge, and shows Update branch when a pull request falls behind main."
 run gh repo edit "$FULL" --enable-squash-merge --enable-merge-commit=false --enable-rebase-merge=false --delete-branch-on-merge --allow-update-branch
 run gh api --silent -X PATCH "repos/$FULL" -f squash_merge_commit_title=PR_TITLE -f squash_merge_commit_message=BLANK
 
@@ -75,7 +75,7 @@ for pair in developers:admin design:pull; do
 		echo "  Team \"$team\" does not exist yet. Create it (org-setup.md, section 3) and run this again."
 	fi
 done
-echo "  Contractors: add them by hand as outside collaborators with Write (Settings → Collaborators)."
+echo "  Add contractors by hand as outside collaborators with Write access, in Settings → Collaborators."
 
 echo
 echo "3. Description, website and topics"
@@ -121,7 +121,7 @@ if [ "$KIND" = "wp-site" ]; then
 fi
 
 echo
-echo "Done. Still to do by hand:"
-echo "  - Renovate: add the repository to the app (github.com/apps/renovate → Configure)."
-[ "$KIND" = "wp-site" ] && echo "  - The rest of the site's SETUP.md (files, plugins, first deploy)."
-echo "  - Security settings apply automatically through the organization's configuration."
+echo "Done. Do these steps by hand:"
+echo "  - Add the repository to the Renovate app, at github.com/apps/renovate → Configure."
+[ "$KIND" = "wp-site" ] && echo "  - Complete the other steps in the SETUP.md of the site, for example the plugins and the first deploy."
+echo "The security settings of the organization apply automatically, so security needs no step."

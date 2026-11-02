@@ -6,7 +6,7 @@ body:
     id: url
     attributes:
       label: Page
-      description: The full URL, and whether it is production or staging.
+      description: Enter the full URL, and say if it is production or staging.
       placeholder: https://<site>/contact/ (production)
     validations:
       required: true
