@@ -83,6 +83,10 @@ Merge a pull request soon after its approval. While a branch stays open, `main` 
 
 Code moves up through Git, from local to staging to production. Content moves down. Do not push a database to production. It replaces the content that the client entered.
 
+## Code checks
+
+The **Checks** workflow runs on each pull request. It checks PHP syntax, the WordPress security rules, PHP compatibility, and CSS and JavaScript. Run the same checks on your computer before you open a pull request. For the tools, the reasons for them and the commands, see [linting.md](linting.md).
+
 ## Commit messages and pull request titles
 
 With squash merging, the title of the pull request becomes the commit message on `main`. Commits on a branch can be informal.
