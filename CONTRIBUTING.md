@@ -144,6 +144,17 @@ Repositories outside that folder continue to use your personal email.
 
 The `composer.json` file of each site lists its plugins. Composer installs them, and Renovate opens a pull request for each update. Do not install or update plugins in wp-admin. For the full steps, see [plugins.md](plugins.md).
 
+## Scripts that change data
+
+These rules apply to people and to AI tools. They cover any script, query or command that deletes or changes content, users, settings or files on a site, including a site on your own computer.
+
+1. Before you run it, save a copy of the database to a file outside the repository. For example, run `mysqldump database_name > /tmp/site-before.sql`. Do not commit the file.
+2. Do not run a delete with a filter that can be empty. In WordPress, an empty or null filter (for example `'author' => null`) matches every row. If the script looks up a user, a post or a term first, stop the script when the lookup finds nothing.
+3. Remove test data in a safe order. For example, remove the posts of a test user before you delete the user, because the cleanup needs the ID of the user.
+4. Run it once on a small set, and count what it will change. Then run it on everything.
+
+WordPress deletes the files of a media item from the disk when it deletes the item. A copy of the database does not bring those files back. Keep a copy of the uploads folder before a script deletes media.
+
 ## Files that are never committed
 
 Do not commit `wp-config.php`, `.env` files, passwords, keys, database dumps or uploads. The `.gitignore` of each template excludes them. Do not remove lines from it.
