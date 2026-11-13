@@ -27,8 +27,8 @@ The rules are based on ASD-STE100 Simplified Technical English, a controlled lan
 
 ## Words
 
-1. Do not use contractions. Write "do not", "it is" and "cannot".
-2. Use Canadian spelling: colour, behaviour, centre, licence (noun), license (verb), catalogue, cancelled. Use the "-ize" endings: organization, customize. Write the names of buttons and settings exactly as the software shows them, even when they use American spelling.
+1. Contractions are fine: "don't", "it's", "can't". Write the full form when a step needs the emphasis: "Do not merge this branch."
+2. Use Canadian spelling in our own documentation: colour, behaviour, centre, licence (noun), license (verb), catalogue, cancelled. Use the "-ize" endings: organization, customize. Write the names of buttons and settings exactly as the software shows them, even when they use American spelling. Text on a client's site follows the client's spelling. Write it under "Things to know" in the site's README.
 3. Use "can" for a possibility, "must" for a requirement and "do not" for a prohibition. Do not use should, would, may, might or could. If a "should" is a requirement, write "must". If it is optional, say that it is optional.
 4. Use one word for one meaning throughout a document. The Excentric terms are in the table below.
 5. Define a technical term the first time you use it, in fewer than ten words. Do not define product names (WordPress, GitHub, Composer).
@@ -118,7 +118,7 @@ After:
 
 ## Before you publish
 
-1. Search for `'` (contractions), `;`, `—`, `should`, `may`, `could`, `would`, `has been`, `etc.`, `e.g.`, `thus` and `**`. Fix each one that is not in code or a button name.
+1. Search for `;`, `—`, `should`, `may`, `could`, `would`, `has been`, `etc.`, `e.g.`, `thus` and `**`. Fix each one that is not in code or a button name.
 2. Find the three longest sentences. If one has more than 25 words, split it.
 3. Read each step. If it depends on a folder, an account or an earlier step, name it.
-4. Search for American spellings: color, behavior, center, license (as a noun).
+4. In our own documentation, search for American spellings: color, behavior, center, license (as a noun).
