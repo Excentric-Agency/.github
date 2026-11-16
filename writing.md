@@ -93,6 +93,22 @@ These rules apply to the text that site editors see in wp-admin: field labels, h
 | Help text: One line per row. | Help text: Put each line of the address on its own line. |
 | Help text: The sign-up box in the Display Posts block. | Help text: The sign-up box in the News & Events block. |
 
+## Messages from scripts
+
+These rules apply to what a script or command prints while it runs: deploy scripts, setup scripts and WP-CLI commands.
+
+1. Before the script changes anything, list what it will do with the plain form of each verb: "Copy the files", "Replace the database". Then ask before it goes on.
+2. While a step runs, name it with the "-ing" form of its verb and an ellipsis: "Copying the files…", "Making the settings safe…". Do not use the plain verb or a heading like "== copy" for a step that is running.
+3. Show how far a step is when it takes more than a few seconds: a bar with a percentage, or a count such as "1,200 of 3,400 files". Draw the bar only in a terminal, so logs and scheduled runs stay readable.
+4. End each step with its result and the numbers: "120 files updated (35 MB)." Write the same result to the log.
+5. Keep the output of other tools short. Show their errors as they are. Sum up a known warning in one line instead of printing it many times.
+
+| Before | After |
+|---|---|
+| `== copy the files (2.4)` | `Copying the files…` |
+| `Success: Made 53522 replacements.` and a table | `53522 addresses now point to the copy.` |
+| `Delete these 1 backups?` | `Delete 1 backup (586 MB)?` |
+
 ## What does not change
 
 Code, commands, file paths, error messages, quotations and product names stay exactly as they are. Pull request titles keep their own format, `Area: what changed`, from [CONTRIBUTING.md](CONTRIBUTING.md#commit-messages-and-pull-request-titles).
