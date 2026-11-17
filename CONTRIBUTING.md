@@ -73,7 +73,8 @@ To get notifications for new issues in a repository, select **Watch → Custom �
 4. Complete the pull request template. For a small change, the two required lines are sufficient.
 5. Merge with **Squash and merge**. This is the only merge method that the repositories allow. The pull request becomes one commit on `main`, with the title of the pull request, and you can revert it in one step. Before you merge, shorten the pre-filled description to one or two sentences.
 6. Merge only work that is ready to go live. A merge deploys to staging, and the next production deploy includes all of `main`. Work that waits for approval stays in an open pull request.
-7. An Excentric developer deploys production with **Actions → Deploy to WP Engine → Run workflow → production**.
+7. After the merge, switch to `main`, pull it and delete your local branch. GitHub deletes the branch on github.com. The commands are in "Clean up after the merge" in [commands.md](commands.md).
+8. An Excentric developer deploys production with **Actions → Deploy to WP Engine → Run workflow → production**.
 
 Excentric developers can merge their own small pull requests when the checks pass. A second person reviews larger changes.
 
