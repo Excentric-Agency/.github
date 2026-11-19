@@ -65,6 +65,23 @@ GitHub Issues holds all Excentric work. The **Excentric work** project board sho
 
 To get notifications for new issues in a repository, select **Watch → Custom → Issues** on the repository.
 
+## Plans
+
+A plan is a file that says why a change matters, which decisions were made, the steps and the tests. Write a plan for a change that has more than one step or that needs a decision. A small fix needs only its issue.
+
+1. Keep the plans of a repository in its `plans/` folder, in Git. The site template has this folder.
+2. Name each plan `NNN-slug.md`, for example `013-joined-stylesheet.md`. Take the next free number.
+3. Do not change a number, and do not use it again. Branches, pull requests and other plans refer to it. The number says when the plan was added, not when the work was done.
+4. List every plan in `plans/README.md`, with a link, a title and a status: TODO, IN PROGRESS, DONE (with the pull request), BLOCKED or REJECTED (with the reason).
+5. Keep a finished plan in the folder. It is the record of why the code is the way it is.
+6. Put an extra file of a plan, for example a patch or a list of measurements, in `plans/attachments/`. Start its name with the number of the plan.
+7. Write an idea that has no plan yet under "Ideas" in `plans/README.md`, not in the code.
+8. Write each decision in the plan with the name of the person who made it and the date, so that nobody asks the question again.
+9. Name the branch of a plan as "Making changes" says, with the number and the name of the plan: `feature/013-joined-stylesheet`, `fix/015-link-text` or `update/019-plain-comments`.
+10. Do not put passwords, keys, logins or client data in a plan.
+
+Update the status of a plan in the pull request that completes it. In the issue for the work, add a link to the plan.
+
 ## Making changes
 
 1. Make all changes through a pull request into `main`, including one-line fixes. The checks run on the pull request, staging shows the change before production, and the pull request records the reason for the change.
